@@ -188,7 +188,7 @@ describe('componentMethodsHandler', () => {
         Test.displayName = 'Test'; // Not a method
       `;
 
-      const definition = parse(src).get('body', 0, 'expression', 0, 'right');
+      const definition = parse(src).get('body', 0, 'expression', 'right');
       componentMethodsHandler(documentation, definition);
       expect(documentation.methods).toMatchSnapshot();
     });

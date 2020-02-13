@@ -106,7 +106,7 @@ export default function componentMethodsHandler(
       path.parent.get('left'),
     );
   } else if (t.FunctionDeclaration.check(path.node)) {
-    methodPaths = findAssignedMethods(path.parent.scope, path.parent.get('id'));
+    methodPaths = findAssignedMethods(path.parent.scope, path.get('id'));
   }
 
   documentation.set(
