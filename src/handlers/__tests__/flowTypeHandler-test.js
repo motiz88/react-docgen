@@ -376,7 +376,10 @@ describe('flowTypeHandler', () => {
         let Component = (props: Props, ref) => <div ref={ref}>{props.foo}</div>;
         Component = React.forwardRef(Component);
       `;
-      flowTypeHandler(documentation, parse(src).get('body', 3, 'expression', 'right'));
+      flowTypeHandler(
+        documentation,
+        parse(src).get('body', 3, 'expression', 'right'),
+      );
       expect(documentation.descriptors).toEqual({
         foo: {
           flowType: {},
