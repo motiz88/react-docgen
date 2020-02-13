@@ -181,6 +181,17 @@ describe('defaultPropsHandler', () => {
       expect(documentation.displayName).toBe('Foo');
     });
 
+    it('considers the variable name when handling forwardRef', () => {
+      const definition = statement(
+        [
+          'var Foo = React.forwardRef(() => {});',
+          'import React from "react";',
+        ].join('\n'),
+      ).get('declarations', 0, 'init');
+      expect(() => displayNameHandler(documentation, definition)).not.toThrow();
+      expect(documentation.displayName).toBe('Foo');
+    });
+
     it('considers the variable name on assign', () => {
       const definition = statement('Foo = () => {};').get(
         'expression',
@@ -196,6 +207,18 @@ describe('defaultPropsHandler', () => {
         'right',
         'arguments',
         0,
+      );
+      expect(() => displayNameHandler(documentation, definition)).not.toThrow();
+      expect(documentation.displayName).toBe('Foo');
+    });
+
+    it('considers the variable name on assign when handling forwardRef call', () => {
+      const definition = statement([
+        'Foo = React.forwardRef(() => {});',
+        'import React from "react";',
+      ].join('\n'),).get(
+        'expression',
+        'right',
       );
       expect(() => displayNameHandler(documentation, definition)).not.toThrow();
       expect(documentation.displayName).toBe('Foo');
