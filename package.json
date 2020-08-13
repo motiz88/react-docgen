@@ -41,8 +41,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@babel/core": "^7.7.5",
-    "@babel/runtime": "^7.7.6",
+    "@babel/core": "^7.11.1",
+    "@babel/runtime": "^7.11.2",
     "@motiz88/ast-types": "^0.13.3",
     "commander": "^2.19.0",
     "doctrine": "^3.0.0",
@@ -52,10 +52,10 @@
     "strip-indent": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.5",
-    "@babel/plugin-transform-runtime": "^7.7.6",
-    "@babel/preset-env": "^7.7.6",
-    "@babel/preset-flow": "^7.7.4",
+    "@babel/cli": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-flow": "^7.10.4",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^25.1.0",
     "benchmark": "^2.1.4",
